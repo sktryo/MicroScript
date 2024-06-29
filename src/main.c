@@ -33,6 +33,10 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
+    int debug = 0;
+    #ifdef DEBUG
+        debug = 1;
+    #endif
     char *code = readCodeFromFile(argv[1]); // コマンドライン引数からファイル名を取得し、コードを読み込む
     MicroScriptInterpreter interpreter;
     initInterpreter(&interpreter, code, 0); // デバッグモードをオフにしてインタプリタを初期化
