@@ -34,7 +34,7 @@ jobs:
     - name: Package binaries
       run: |
         cd build
-        zip -r my_project_binaries_linux.zip .
+        zip -r microscript_binaries_linux.zip .
 
     - name: Upload release artifacts
       uses: actions/upload-artifact@v2
@@ -66,7 +66,7 @@ jobs:
     - name: Package binaries
       run: |
         cd build
-        Compress-Archive -Path * -DestinationPath my_project_binaries_windows.zip
+        Compress-Archive -Path * -DestinationPath microscript_binaries_windows.zip
 
     - name: Upload release artifacts
       uses: actions/upload-artifact@v2
@@ -98,7 +98,7 @@ jobs:
     - name: Package binaries
       run: |
         cd build
-        zip -r my_project_binaries_macos.zip .
+        zip -r microscript_binaries_macos.zip .
 
     - name: Upload release artifacts
       uses: actions/upload-artifact@v2
