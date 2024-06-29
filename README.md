@@ -1,5 +1,7 @@
 # MicroScript
 
+[![CMake on multiple platforms](https://github.com/sktryo/MicroScript/actions/workflows/cmake-multi-platform.yml/badge.svg)](https://github.com/sktryo/MicroScript/actions/workflows/cmake-multi-platform.yml)
+
 MicroScript is a minimalistic interpreter for a simple Turing-complete language, implemented in C. It supports basic operations such as tape manipulation, increment, decrement, loops, and simple I/O.
 
 ## Features
