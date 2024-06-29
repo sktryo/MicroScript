@@ -1,39 +1,49 @@
 # MicroScript
 
-MicroScript is a minimalistic interpreter for a simple Turing-complete language, designed to run on constrained environments and demonstrate basic interpreter concepts.
+MicroScript is a minimalistic interpreter for a simple Turing-complete language, implemented in C. It supports basic operations such as tape manipulation, increment, decrement, loops, and simple I/O.
 
 ## Features
 
-- **Minimalistic Design:** Written in C, MicroScript implements basic operations such as tape movement, increment, decrement, and loops using a compact code base.
-- **Input/Output:** Supports reading ASCII input into tape cells (`_`) and printing ASCII characters from tape cells (`|`).
-- **Debug Mode:** Optional debug mode provides insight into program execution, showing each command executed, tape state, and more.
+- **Minimalistic Design:** Implemented in C with a focus on simplicity and clarity.
+- **Basic Operations:** Supports `>`, `<`, `+`, `-`, `[`, `]`, `_`, and `|` commands.
+- **Input/Output:** Reads ASCII input into tape cells (`_`) and prints ASCII characters from tape cells (`|`).
+- **Debug Mode:** Optional debug mode (`-DDEBUG=ON`) enables debug messages and verbose output.
 
 ## Usage
 
-1. **Compile:** Compile MicroScript using a C compiler.
-   
-   ```
-   gcc -o microscript main.c microscript.c
+1. **Building MicroScript:**
+   ```bash
+   mkdir build
+   cd build
+   cmake -DDEBUG=ON ..
+   cmake --build .
    ```
 
-2. **Run:** Execute MicroScript with a script file containing MicroScript code.
-
-   ```
+2. **Running MicroScript:**
+   ```bash
    ./microscript script.txt
    ```
 
-3. **Debug:** Enable debug mode (`initInterpreter(&interpreter, code, 1);`) to trace program execution.
+   Replace `script.txt` with the path to your MicroScript code file.
 
-## Example
+3. **Debug Mode:**
+   Enable debug mode by defining `-DDEBUG=ON` during the build. This will include debug messages during execution.
 
-```plaintext
-$ cat script.txt
-++++++++++[>++++++<-]>|
+4. **MicroScript Code Example:**
+   ```plaintext
+   script.txt:
+   ++++++++++[>+++++++<-]>|     # Increment current cell to 10 and print as ASCII '*'
+   ```
 
-$ ./microscript script.txt
-*
-```
+5. **License:**
+   This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-## License
+## Requirements
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+- CMake 3.10 or higher
+- C compiler (e.g., GCC, Clang)
+
+## Contributing
+
+Contributions are welcome! Please fork the repository, make your changes, and submit a pull request.
+
