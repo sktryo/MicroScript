@@ -69,16 +69,22 @@ void interpret(MicroScriptInterpreter *interpreter) {
                 break;
             case '_': {
                 char input[2];
-                printf("Input a character: ");
-                fgets(input, sizeof(input), stdin);
-                interpreter->tape[interpreter->pointer] = (int)input[0];
+                if (interpreter->debug) {
+                    printf("Input a character: ");
+                }
+                if (fgets(input, sizeof(input), stdin) != NULL) {
+                    interpreter->tape[interpreter->pointer] = (int)input[0];
+                } else {
+                    fprintf(stderr, "Error reading input\n");
+                    exit(1);
+                }
                 break;
             }
             case '|':
                 printf("%c", (char)interpreter->tape[interpreter->pointer]);
                 break;
             default:
-                // Ignore other characters
+                // 他の文字は無視
                 break;
         }
 

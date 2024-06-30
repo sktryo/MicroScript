@@ -20,7 +20,13 @@ char *readCodeFromFile(const char *filename) {
         exit(1);
     }
 
-    fread(buffer, 1, fileSize, file);
+    size_t bytesRead = fread(buffer, 1, fileSize, file);
+    if (bytesRead != fileSize) {
+        fclose(file);
+        free(buffer);
+        fprintf(stderr, "Error reading file: %s\n", filename);
+        exit(1);
+    }
     buffer[fileSize] = '\0';
 
     fclose(file);
@@ -39,7 +45,7 @@ int main(int argc, char *argv[]) {
     #endif
     char *code = readCodeFromFile(argv[1]); // コマンドライン引数からファイル名を取得し、コードを読み込む
     MicroScriptInterpreter interpreter;
-    initInterpreter(&interpreter, code, 0); // デバッグモードをオフにしてインタプリタを初期化
+    initInterpreter(&interpreter, code, debug); // デバッグモードをオフにしてインタプリタを初期化
     interpret(&interpreter);
     free(code); // メモリを解放する
     return 0;
