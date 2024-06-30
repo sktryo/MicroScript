@@ -33,7 +33,7 @@ MicroScript is a minimalistic interpreter for a simple Turing-complete language,
 4. **MicroScript Code Example:**
    ```plaintext
    script.txt:
-   ++++++++++[>+++++++<-]>|     # Increment current cell to 10 and print as ASCII '*'
+   +++++++++++++++++++++++++++++++++|     # Increment current cell to 33 and print as ASCII '!'
    ```
 
 5. **License:**
