@@ -34,13 +34,13 @@ jobs:
     - name: Package binaries
       run: |
         cd build
-        zip -r my_project_binaries_linux.zip .
+        zip -r microscript_binaries_linux.zip .
 
     - name: Upload release artifacts
       uses: actions/upload-artifact@v2
       with:
-        name: my_project_binaries_linux
-        path: build/my_project_binaries_linux.zip
+        name: microscript_binaries_linux
+        path: build/microscript_binaries_linux.zip
 
   build-windows:
     runs-on: windows-latest  # Windows環境で実行
@@ -66,13 +66,13 @@ jobs:
     - name: Package binaries
       run: |
         cd build
-        Compress-Archive -Path * -DestinationPath my_project_binaries_windows.zip
+        Compress-Archive -Path * -DestinationPath microscript_binaries_windows.zip
 
     - name: Upload release artifacts
       uses: actions/upload-artifact@v2
       with:
-        name: my_project_binaries_windows
-        path: build/my_project_binaries_windows.zip
+        name: microscript_binaries_windows
+        path: build/microscript_binaries_windows.zip
 
   build-macos:
     runs-on: macos-latest  # macOS環境で実行
@@ -98,10 +98,10 @@ jobs:
     - name: Package binaries
       run: |
         cd build
-        zip -r my_project_binaries_macos.zip .
+        zip -r microscript_binaries_macos.zip .
 
     - name: Upload release artifacts
       uses: actions/upload-artifact@v2
       with:
-        name: my_project_binaries_macos
-        path: build/my_project_binaries_macos.zip
+        name: microscript_binaries_macos
+        path: build/microscript_binaries_macos.zip
